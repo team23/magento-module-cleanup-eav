@@ -15,6 +15,8 @@ use Team23\CleanupEav\Model\Config;
  *
  * Clean configuration paths, compare paths from `system.xml` files with paths in `core_config_data`.
  * Remove orphaned paths in database.
+ *
+ * @SuppressWarnings(PHPMD.LongVariableName)
  */
 class CleanConfigPath extends Command
 {

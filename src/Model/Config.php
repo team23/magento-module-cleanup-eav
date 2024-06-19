@@ -6,6 +6,9 @@ namespace Team23\CleanupEav\Model;
 use Team23\CleanupEav\Model\Facade\PathProcessorFacadeFactory;
 use Team23\CleanupEav\Model\ResourceModel\Config as ConfigResource;
 
+/**
+ * @SuppressWarnings(PHPMD.LongVariableName)
+ */
 class Config
 {
     /**
@@ -73,11 +76,10 @@ class Config
     public function cleanUpPaths(bool $isDryRun = true): array
     {
         $orphanedPaths = [];
+        $excludedPaths = array_merge($this->excludedCorePaths, $this->excludedPaths);
         foreach ($this->configResource->getAllPaths() as $path) {
             $pathProcessor = $this->pathProcessorFacadeFactory->create();
-            if (!$pathProcessor->process($path)
-                && !in_array($path, array_merge($this->excludedCorePaths, $this->excludedPaths))
-            ) {
+            if (!$pathProcessor->process($path) && !in_array($path, $excludedPaths)) {
                 $orphanedPaths[] = $path;
             }
         }

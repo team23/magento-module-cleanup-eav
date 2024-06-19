@@ -159,7 +159,7 @@ class Media
                 continue;
             }
             $fileStat = $this->fileDriver->stat($realFile);
-            $fileSize = isset($fileStat['size']) ? $fileStat['size'] : 0;
+            $fileSize = $fileStat['size'] ?? 0;
             $this->fileCount++;
             $this->fileSize += $fileSize;
             if (!$isDryRun) {
