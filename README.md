@@ -7,7 +7,6 @@ The `Team23_CleanupEav` module enables you to maintain and cleanup your eav data
 Installation is done via composer
 
 ```shell
-composer config repositories.git.team23.de/171 '{"type": "composer", "url": "https://git.team23.de/api/v4/group/171/-/packages/composer/packages.json"}'
 composer require team23/module-cleanup-eav
 bin/magento module:enable Team23_CleanupEav
 ```
