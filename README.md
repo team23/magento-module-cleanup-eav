@@ -1,4 +1,4 @@
-# Team23_CleanupEav
+# TEAM23 CleanupEav
 
 The `Team23_CleanupEav` module enables you to maintain and cleanup your eav database.
 
@@ -8,8 +8,9 @@ Installation is done via composer
 
 ```shell
 composer require team23/module-cleanup-eav
-bin/magento module:enable Team23_CleanupEav
 ```
+
+Now register the module with `bin/magento setup:upgrade`.
 
 ## Configuration
 
