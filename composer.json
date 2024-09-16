@@ -2,7 +2,7 @@
     "name": "team23/module-cleanup-eav",
     "description": "Provide CLI tasks to cleanup entity-attribute-value tables",
     "type": "magento2-module",
-    "version": "1.2.0",
+    "version": "1.2.1",
     "license": ["BSD-3-Clause"],
     "require": {
         "php": "^8.1",

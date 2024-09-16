@@ -85,10 +85,10 @@ class Media
         if (!$isDryRun) {
             $this->mediaResource->deleteOrphanedGalleryEntitiesWithoutValues();
         }
-        $imagesInDatabase = $this->mediaResource->getImages();
-        $imagesOnDisk = $this->getImagesOnDisk();
-        $this->filesToDelete = array_diff($imagesOnDisk, $imagesInDatabase);
-        $this->filesToRemoveFromDb = array_diff($imagesInDatabase, $imagesOnDisk);
+        $imagesInDatabase = array_unique($this->mediaResource->getImages());
+        $imagesOnDisk = array_unique($this->getImagesOnDisk());
+        $this->filesToDelete = array_udiff($imagesOnDisk, $imagesInDatabase, 'strcasecmp');
+        $this->filesToRemoveFromDb = array_udiff($imagesInDatabase, $imagesOnDisk, 'strcasecmp');
         if ($this->filesToDelete !== []) {
             try {
                 $this->unlinkFiles($isDryRun);
